@@ -1,7 +1,7 @@
 import 'dart:convert' show json;
-import 'dart:math';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class Weather {
   final max;
@@ -30,7 +30,7 @@ class Weather {
       this.location});
 }
 
-String appId = 'e133b581c98bb482f435de00072b5e3a';
+String appId = dotenv.env['RAPID_API_KEY'].toString();
 
 Future<List> fetchData(String lat, String lon, String city) async {
   var url =
